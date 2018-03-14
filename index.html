@@ -9,19 +9,32 @@
     
                var percent = document.getElementById('percent').value;//filter_input(INPUT_POST, 'denominator', FILTER_VALIDATE_INT);
                 
-    
+                var first = true;
+                var all = new Array();
+                var count = 0;
                 for(var i=den; i>0; i--){
                     for(var j = den; j>0; j--){
                         if( (Math.round(((j)/i)*100*100.0)/100.0) == percent){
+                          if(first){
                             document.getElementById('curve').innerHTML= i;
                             document.getElementById('curves').innerHTML= Math.round((percent*i)/100);
                             document.getElementById('curved').innerHTML= den-i;
-                            return;	
+                            first = false;   
+                          }
+                          else{
+                          if(den-i<25){
+                            all.push(i);
+                            console.log(all);
+                            document.getElementById('curvecheck').innerHTML= all;
+                          }
+                          }
                          }
                     }		
                 }
+                if(a.length()<1){
                 alert("The entered percentage seems incorrect.")	
                 return;
+                }
             }
 
             
@@ -99,7 +112,12 @@
                                         </div>
                                         <div class="text-center">
                                         <button type="submit" name="button" id="button" class="btn btn-info btn-round" onclick="click();">Calculate</button>
-                                        <script>  
+                                        <div class="text-left">
+                                                <h4><b>Your Exam Was Curved To:<p id="curve"></p></b><h4>
+                                                <h4><b>Number Of Points You Scored: <p id="curves"></p></b><h4></h4>
+                                                 <h4><b>Number of Points Curved: <p id="curved"></p></b><h4>
+                                                 </div>
+                                      <script>  
                                                 document.getElementById('button').onclick = function(){         
                                                    check(); 
                                                }
@@ -107,6 +125,8 @@
                                     </div>
                                     </form>
                                 </div>
+                            
+
                                 <div class="col-md-5 mr-auto">
                                     <div class="social text-center">
                                         
@@ -121,9 +141,8 @@
                                             the maximum points </h6>
                                          <h6> 5: If you got a curved 100, this will not work. </h6>
                                         <br> 
-                                        <h4><b>Your Exam Was Curved To:<p id="curve"></p></b><h4>
-                                        <h4><b>Number Of Points You Scored: <p id="curves"></p></b><h4></h4>
-                                        <h4><b>Number of Points Curved: <p id="curved"></p></b><h4>
+                                        <h4><b>Other Possible Curves Are:<p id="curvecheck"></p></b><h4>
+                                        
                                                
                                         <div class="text-center">
                                         </div>
