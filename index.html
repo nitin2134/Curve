@@ -5,6 +5,10 @@
         <script type = "text/javascript">
             function check() {
                 
+                document.getElementById('curvecheck').innerHTML= null;
+                document.getElementById('curve').innerHTML= null;
+                document.getElementById('curves').innerHTML= null;
+                document.getElementById('curved').innerHTML= null;
                var den = document.getElementById('denominator').value;//filter_input(INPUT_POST, 'denominator', FILTER_VALIDATE_INT);
     
                var percent = document.getElementById('percent').value;//filter_input(INPUT_POST, 'denominator', FILTER_VALIDATE_INT);
@@ -46,7 +50,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/kit/free/apple-icon.png">
-    <link rel="icon" href="assets/img/kit/free/favicon.png">
+    <link rel="icon" href="favicon.png">
     <title>
        CurveCalc
     </title>
