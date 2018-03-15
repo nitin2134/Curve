@@ -18,18 +18,23 @@
                 var count = 0;
                 for(var i=den; i>0; i--){
                     for(var j = den; j>0; j--){
+                        if(percent == 100){
+                            alert("Do worse next time so you can use this calculator! This doesn't work for curved 100's");
+                            return;
+                        }
+
                         if( (Math.round(((j)/i)*100*100.0)/100.0) == percent){
                           if(first){
                             document.getElementById('curve').innerHTML= i;
                             document.getElementById('curves').innerHTML= Math.round((percent*i)/100);
                             document.getElementById('curved').innerHTML= den-i;
                             first = false; 
-                            all.push("");
+                            all.push(null);
                           }
                           else{
                           if(den-i<25){
                             all.push(i);
-                            console.log(all);
+                            
                             document.getElementById('curvecheck').innerHTML= all;
                           }
                           }
