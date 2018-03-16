@@ -15,6 +15,7 @@
                 
                 var first = true;
                 var all = new Array();
+                var all2= new Array();
                 var count = 0;
                 for(var i=den; i>0; i--){
                     for(var j = den; j>0; j--){
@@ -29,7 +30,7 @@
                             document.getElementById('curves').innerHTML= Math.round((percent*i)/100);
                             document.getElementById('curved').innerHTML= den-i;
                             first = false; 
-                            all.push(null);
+                            all2.push(null);
                           }
                           else{
                           if(den-i<25){
@@ -41,7 +42,7 @@
                          }
                     }		
                 }
-                if(all.length==0 ){
+                if(all.length==0 && all2.length ==0){
                 alert("The entered percentage seems incorrect.")	
                 return;
                 }
